@@ -1,29 +1,34 @@
 package prova2lp2;
 
 /** Representação de um desafio.
- * Todo desasfio precisa de um título e uma descrição.
+ * Todo desasfio precisa de um título e uma descrição opcional.
  * A quantidade de vezes que o desafio foi completo
  * começa em 0.
  * 
  * @author Dhouglas Bandeira
  *
  */
-public class Challenge {
+public abstract class Challenge {
 
 	/**
 	 * Título do desafio.
 	 */
-	private String title;
+	protected String title;
 	
 	/**
 	 * Descrição do desafio
 	 */
-	private String description;
+	protected String description;
 	
 	/**
 	 * quantidade de vezes que o desafio foi executado.
 	 */
-	private int performedTimes;
+	protected int performedTimes;
+
+	/**
+	 * Grau de satisfação dado pela Challenge.
+	 */
+	protected int satisfaction;
 	
 	/** Cria uma Challenge a partir de um título e descrição.
 	 *  quantidade de execuções começa em 0.
@@ -34,6 +39,18 @@ public class Challenge {
 	public Challenge(String title, String description) {
 		this.title = title;
 		this.description = description;
+		this.performedTimes = 0;
+	}
+	
+	/** Cria uma Challenge a partir de um título.
+	 *  quantidade de execuções começa em 0.
+	 * 
+	 * @param title
+	 * @param description
+	 */
+	public Challenge(String title) {
+		this.title = title;
+		this.description = "";
 		this.performedTimes = 0;
 	}
 	
@@ -76,4 +93,17 @@ public class Challenge {
 
 		return result;
 	}
+	
+	/** Pega o grau de satisfação do desafio.
+	 * 
+	 * @return satisfaction
+	 */
+	public int getSatisfaction() {
+		return this.satisfaction;
+	}
+	
+	/** Calcula a satisfação do desafio para incrementar a satisfação.
+	 * 
+	 */
+	public abstract void calculateSatisfaction();
 }

@@ -25,7 +25,7 @@ public class ChallengeController {
 		this.challengesList = new ArrayList<Challenge>();
 	}
 	
-	/** Adiciona uma challenge à lista
+	/** Adiciona uma challenge pessoal à lista
 	 * Operação não permitida se uma challenge de mesmo
 	 * título já foi cadastrada.
 	 * 
@@ -33,15 +33,114 @@ public class ChallengeController {
 	 * @param description
 	 * @return posição da challenge.
 	 */
-	public int addChallenge(String title, String description) {
+	public int addPersonalChallenge(String title, String description) {
 		
 		if (this.challengeAlreadyExists(title)) {
 			throw new IllegalArgumentException("DESAFIO JÁ EXISTE!");
 		}
 		
-		Challenge challenge = new Challenge(title, description);
-		this.challengesList.add(challenge);
-		return this.challengesList.indexOf(challenge) + 1;
+		PersonalChallenge personalChallenge = new PersonalChallenge(title, description);
+		this.challengesList.add(personalChallenge);
+		return this.challengesList.indexOf(personalChallenge) + 1;
+	}
+	
+	/** Adiciona uma challenge pessoal sem descrição à lista
+	 * Operação não permitida se uma challenge de mesmo
+	 * título já foi cadastrada.
+	 * 
+	 * @param title
+	 * @param description
+	 * @return posição da challenge.
+	 */
+	public int addPersonalChallenge(String title) {
+		
+		if (this.challengeAlreadyExists(title)) {
+			throw new IllegalArgumentException("DESAFIO JÁ EXISTE!");
+		}
+		
+		PersonalChallenge personalChallenge = new PersonalChallenge(title);
+		this.challengesList.add(personalChallenge);
+		return this.challengesList.indexOf(personalChallenge) + 1;
+	}
+	
+	/** Adiciona uma challenge material à lista
+	 * Operação não permitida se uma challenge de mesmo
+	 * título já foi cadastrada.
+	 * 
+	 * @param title
+	 * @param description
+	 * @param goal
+	 * @return posição da challenge.
+	 */
+	public int addMaterialChallenge(String title, String description, int goal) {
+		
+		if (this.challengeAlreadyExists(title)) {
+			throw new IllegalArgumentException("DESAFIO JÁ EXISTE!");
+		}
+		
+		MaterialChallenge materialChallenge = new MaterialChallenge(title, description, goal);
+		this.challengesList.add(materialChallenge);
+		return this.challengesList.indexOf(materialChallenge) + 1;
+	}
+	
+	/** Adiciona uma challenge material sem descrição à lista
+	 * Operação não permitida se uma challenge de mesmo
+	 * título já foi cadastrada.
+	 * 
+	 * @param title
+	 * @param description
+	 * @param goal
+	 * @return posição da challenge.
+	 */
+	public int addMaterialChallenge(String title, int goal) {
+		
+		if (this.challengeAlreadyExists(title)) {
+			throw new IllegalArgumentException("DESAFIO JÁ EXISTE!");
+		}
+		
+		MaterialChallenge materialChallenge = new MaterialChallenge(title, goal);
+		this.challengesList.add(materialChallenge);
+		return this.challengesList.indexOf(materialChallenge) + 1;
+	}
+	
+	/** Adiciona uma challenge social à lista
+	 * Operação não permitida se uma challenge de mesmo
+	 * título já foi cadastrada.
+	 * 
+	 * @param title
+	 * @param description
+	 * @param persons
+	 * @return posição da challenge.
+	 */
+	public int addSocialChallenge(String title, String description, int persons) {
+		
+		if (this.challengeAlreadyExists(title)) {
+			throw new IllegalArgumentException("DESAFIO JÁ EXISTE!");
+		}
+		
+		SocialChallenge materialChallenge = new SocialChallenge(title, description, persons);
+		this.challengesList.add(materialChallenge);
+		return this.challengesList.indexOf(materialChallenge) + 1;
+	}
+	
+	/** Adiciona uma challenge social sem descrição à lista
+	 * Operação não permitida se uma challenge de mesmo
+	 * título já foi cadastrada.
+	 * 
+	 * @param title
+	 * @param description
+	 * @param persons
+	 * @return posição da challenge.
+	 */
+	public int addSocialChallenge(String title, int persons) {
+		
+		if (this.challengeAlreadyExists(title)) {
+			throw new IllegalArgumentException("DESAFIO JÁ EXISTE!");
+		}
+		
+		SocialChallenge socialChallenge = new SocialChallenge(title, persons);
+		this.challengesList.add(socialChallenge);
+		return this.challengesList.indexOf(socialChallenge) + 1;
 	}
 	
 	/** Pega uma challenge.

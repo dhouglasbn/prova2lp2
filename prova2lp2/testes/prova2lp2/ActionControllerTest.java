@@ -26,7 +26,7 @@ class ActionControllerTest {
 	void addActionTest() {
 		String msg = "Espera-se que a adição da ação seja bem sucedida.";
 		
-		this.challengeController.addChallenge("Desafio teste", "teste");
+		this.challengeController.addPersonalChallenge("Desafio teste", "teste");
 		
 		boolean result = this.actionController.addAction(1, "00/00/0000", "11");
 		
@@ -38,7 +38,7 @@ class ActionControllerTest {
 		String msg = "Espera-se que na adição de uma ação já"
 				+ " existente lance a exceção IllegalArgumentException.";
 		
-		this.challengeController.addChallenge("Desafio teste", "teste");
+		this.challengeController.addPersonalChallenge("Desafio teste", "teste");
 		this.actionController.addAction(1, "00/00/0000", "11");
 		
 		assertThrows(
@@ -53,7 +53,7 @@ class ActionControllerTest {
 		String msg = "Espera-se que na adição de uma ação em um desafio"
 				+ " inexistente lance a exceção IndexOutOfBoundsException.";
 		
-		this.challengeController.addChallenge("Desafio teste", "teste");
+		this.challengeController.addPersonalChallenge("Desafio teste", "teste");
 		
 		assertThrows(
 				IndexOutOfBoundsException.class,
@@ -68,7 +68,7 @@ class ActionControllerTest {
 				+ "uma ação, o valor 10 seja adicionado ao progresso.";
 		int expectedValue = 10;
 		
-		this.challengeController.addChallenge("Desafio teste", "teste");
+		this.challengeController.addPersonalChallenge("Desafio teste", "teste");
 		this.actionController.addAction(1, "00/00/0000", "11");
 		this.actionController.addActionProgress("11");
 		int result = this.actionController.getAction("11").getProgress();
@@ -82,7 +82,7 @@ class ActionControllerTest {
 				+ "uma ação inexistente, seja lançada a exceção "
 				+ "IllegalArgumentException.";
 		
-		this.challengeController.addChallenge("Desafio teste", "teste");
+		this.challengeController.addPersonalChallenge("Desafio teste", "teste");
 		this.actionController.addAction(1, "00/00/0000", "11");
 		
 		assertThrows(
@@ -98,7 +98,7 @@ class ActionControllerTest {
 				+ "uma ação que já foi finalizada(progresso 100), "
 				+ "seja lançada a exceção IllegalStateException.";
 		
-		this.challengeController.addChallenge("Desafio teste", "teste");
+		this.challengeController.addPersonalChallenge("Desafio teste", "teste");
 		this.actionController.addAction(1, "00/00/0000", "11");
 		this.actionController.addActionProgress("11", 100);
 		
@@ -115,7 +115,7 @@ class ActionControllerTest {
 				+ "uma ação, o valor dado seja adicionado ao progresso.";
 		int expectedValue = 75;
 		
-		this.challengeController.addChallenge("Desafio teste", "teste");
+		this.challengeController.addPersonalChallenge("Desafio teste", "teste");
 		this.actionController.addAction(1, "00/00/0000", "11");
 		this.actionController.addActionProgress("11", 75);
 		int result = this.actionController.getAction("11").getProgress();
@@ -129,7 +129,7 @@ class ActionControllerTest {
 				+ "uma ação inexistente, seja lançada a exceção "
 				+ "IllegalArgumentException.";
 		
-		this.challengeController.addChallenge("Desafio teste", "teste");
+		this.challengeController.addPersonalChallenge("Desafio teste", "teste");
 		this.actionController.addAction(1, "00/00/0000", "11");
 		
 		assertThrows(
@@ -146,7 +146,7 @@ class ActionControllerTest {
 				+ "uma ação que já foi finalizada(progresso 100), "
 				+ "seja lançada a exceção IllegalStateException.";
 		
-		this.challengeController.addChallenge("Desafio teste", "teste");
+		this.challengeController.addPersonalChallenge("Desafio teste", "teste");
 		this.actionController.addAction(1, "00/00/0000", "11");
 		this.actionController.addActionProgress("11", 110);
 		
@@ -170,8 +170,8 @@ class ActionControllerTest {
 				+ "Acao 11 - 00/00/0000 - "
 				+ "Desafio teste - Progresso 80\n";
 		
-		this.challengeController.addChallenge("Desafio teste", "teste");
-		this.challengeController.addChallenge("Desafio teste2", "teste");
+		this.challengeController.addPersonalChallenge("Desafio teste", "teste");
+		this.challengeController.addPersonalChallenge("Desafio teste2", "teste");
 		this.actionController.addAction(1, "00/00/0000", "11");
 		this.actionController.addAction(1, "00/00/0000", "22");
 		this.actionController.addAction(2, "00/00/0000", "33");

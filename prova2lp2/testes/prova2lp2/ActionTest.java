@@ -16,7 +16,7 @@ class ActionTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		Challenge challenge = new Challenge("Desafio teste", "teste");
+		Challenge challenge = new PersonalChallenge("Desafio teste", "teste");
 		this.action = new Action(challenge, "00/00/0000", "11");
 	}
 	
@@ -70,7 +70,7 @@ class ActionTest {
 		String msg = "Espera-se que a ação de teste seja maior que a ação "
 				+ "comparada, pois seu progresso é maior. (resultado > 0)";
 		
-		Challenge challenge = new Challenge("Desafio teste!", "teeste");
+		Challenge challenge = new PersonalChallenge("Desafio teste!", "teeste");
 		Action action2 = new Action(challenge, "00/00/000", "22");
 		
 		this.action.incrementProgress(80);
@@ -85,7 +85,7 @@ class ActionTest {
 		String msg = "Espera-se que a ação de teste seja menor que a ação "
 				+ "comparada, pois seu progresso é maior. (resultado < 0)";
 		
-		Challenge challenge = new Challenge("Desafio teste!", "teeste");
+		Challenge challenge = new PersonalChallenge("Desafio teste!", "teeste");
 		Action action2 = new Action(challenge, "00/00/000", "22");
 		
 		this.action.incrementProgress(50);
@@ -100,7 +100,7 @@ class ActionTest {
 		String msg = "Espera-se que a ação de teste seja igual que a ação "
 				+ "comparada, pois seu progresso é maior. (resultado == 0)";
 		
-		Challenge challenge = new Challenge("Desafio teste!", "teeste");
+		Challenge challenge = new PersonalChallenge("Desafio teste!", "teeste");
 		Action action2 = new Action(challenge, "00/00/000", "22");
 		
 		this.action.incrementProgress(90);
