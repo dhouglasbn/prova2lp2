@@ -2,10 +2,6 @@ package prova2lp2;
 
 import java.util.ArrayList;
 
-//IMPORTANTE
-// PERGUNTAR SE A CONTAGEM COMEÇA EM 1.
-// PERGUNTAR O QUE É A SEGUNDA STRING NO ADD_CHALLENGE
-
 /** Representação do Controller de challenges.
  * 
  * @author Dhouglas Bandeira

@@ -16,8 +16,8 @@ class ActionTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		Challenge challenge = new PersonalChallenge("Desafio teste", "teste");
-		this.action = new Action(challenge, "00/00/0000", "11");
+		Challenge personalChallenge = new PersonalChallenge("Desafio teste", "teste");
+		this.action = new Action(personalChallenge, "00/00/0000", "11");
 	}
 	
 	@Test
