@@ -1,23 +1,38 @@
 package prova2lp2;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
 
+//IMPORTANTE
+// PERGUNTAR SE A CONTAGEM COMEÇA EM 1.
+// PERGUNTAR O QUE É A SEGUNDA STRING NO ADD_CHALLENGE
+
+/** Representação do Controller de challenges.
+ * 
+ * @author Dhouglas Bandeira
+ *
+ */
 public class ChallengeController {
 
+	/**
+	 * Lista de challenges.
+	 */
 	private ArrayList<Challenge> challengesList;
 	
-	private HashMap<String, Action> actionsMap;
-	
+	/**
+	 *  Cria um controller de challenges.
+	 */
 	public ChallengeController() {
 		this.challengesList = new ArrayList<Challenge>();
-		this.actionsMap = new HashMap<String, Action>();
 	}
 	
-	// IMPORTANTE
-	// PERGUNTAR SE A CONTAGEM COMEÇA EM 1.
+	/** Adiciona uma challenge à lista
+	 * Operação não permitida se uma challenge de mesmo
+	 * título já foi cadastrada.
+	 * 
+	 * @param title
+	 * @param description
+	 * @return posição da challenge.
+	 */
 	public int addChallenge(String title, String description) {
 		
 		if (this.challengeAlreadyExists(title)) {
@@ -29,76 +44,33 @@ public class ChallengeController {
 		return this.challengesList.indexOf(challenge) + 1;
 	}
 	
+	/** Pega uma challenge.
+	 * 
+	 * @param index
+	 * @return Challenge
+	 */
+	public Challenge getChallenge(int index) {
+		int realIndex = index - 1;
+		return this.challengesList.get(realIndex);
+	}
+	
+	/** Pega a representação de uma Challenge.
+	 * 
+	 * @param index
+	 * @return representação da challenge.
+	 */
 	public String showChallenge(int index) {
 		int realIndex = index - 1;
 		return this.challengesList.get(realIndex).toString();
 	}
 	
-	public boolean addAction(int challengeIndex, String date, String code) {
-		if (this.actionAlreadyExists(code)) {
-			throw new IllegalArgumentException("AÇÂO JÁ EXISTE!");
-		}
-		
-		int realIndex = challengeIndex - 1;
-		Challenge challenge = this.challengesList.get(realIndex);
-		
-		Action action = new Action(challenge, date, code);
-		this.actionsMap.put(code, action);
-		return true;
-	}
-	
-	public void addActionProgress(String code) {
-		if (!this.actionAlreadyExists(code)) {
-			throw new IllegalArgumentException("AÇÃO INEXISTENTE!");
-		}
-		
-		Action action = this.actionsMap.get(code);
-		if (action.isActionFinished()) {
-			throw new IllegalStateException("DESAFIO CONCLUÍDO!");
-		}
-		
-		action.incrementProgress();
-	}
-	
-	public void addActionProgress(String code, int value) {
-		if (!this.actionAlreadyExists(code)) {
-			throw new IllegalArgumentException("AÇÃO INEXISTENTE!");
-		}
-		
-		Action action = this.actionsMap.get(code);
-		if (action.isActionFinished()) {
-			throw new IllegalStateException("DESAFIO CONCLUÍDO!");
-		}
-		
-		action.incrementProgress(value);
-	}
-	
-	public String displayActionsByProgress() {
-		String result = "";
-		ArrayList<Action> actions = new ArrayList<Action>();
-		
-		for (Action action: this.actionsMap.values()) actions.add(action);
-		
-		Collections.sort(actions);
-		for (Action action: actions) {
-			result += "Acao "
-					+ action.getCode()
-					+ " - "
-					+ action.getDate()
-					+ "- "
-					+ action.getChallenge().getTitle()
-					+ "- Progresso "
-					+ action.getProgress()
-					+ "\n";
-		}
-		
-		return result;
-	}
-	
-	private boolean actionAlreadyExists(String code) {
-		return this.actionsMap.containsKey(code);
-	}
-	
+	/** Percorre toda a lista de challenges
+	 *  e verifica se há alguma challenge
+	 *  com o título especificado.
+	 *  
+	 * @param title
+	 * @return true - Challenge existe, false - Challenge inexistente.
+	 */
 	private boolean challengeAlreadyExists(String title) {
 		boolean challengeAlreadyExists = false;
 		

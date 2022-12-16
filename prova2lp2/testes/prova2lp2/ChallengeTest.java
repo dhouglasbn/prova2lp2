@@ -5,6 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/** Test Caste das challenges.
+ * 
+ * @author Dhouglas Bandeira
+ *
+ */
 class ChallengeTest {
 	
 	private Challenge challenge;

@@ -5,6 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/** Test Case das actions.
+ * 
+ * @author Dhouglas Bandeira
+ *
+ */
 class ActionTest {
 
 	private Action action;
@@ -42,7 +47,7 @@ class ActionTest {
 	@Test
 	void incrementOver100ProgressTest() {
 		String msg1 = "Espera-se que o progresso esteja exatamente com 100 de valor.";
-		String msg2 = "Espera-se que o desafio seja incrementado em 1.";
+		String msg2 = "Espera-se que a contagem de desafios seja incrementado em 1.";
 		String msg3 = "Espera-se que a ação esteja finalizada (true).";
 		int expectedResult1 = 100;
 		int expectedResult2 = 1;

@@ -5,6 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+/** Test Case do controller das challenges.
+ * 
+ * @author Dhouglas Bandeira
+ *
+ */
 class ChallengeControllerTest {
 	
 	private ChallengeController challengeController;
@@ -68,5 +73,4 @@ class ChallengeControllerTest {
 				msg
 				);
 	}
-
 }
